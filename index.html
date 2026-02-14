@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Johana 🌹</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background: linear-gradient(#ffdde1, #ee9ca7);
+    font-family: Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+.carta{
+    position:relative;
+    top:100px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:80%;
+    max-width:500px;
+    margin:auto;
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#ff4b5c;
+}
+
+button{
+    padding:12px 25px;
+    font-size:16px;
+    background:#ff4b5c;
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e63946;
+}
+
+/* Flores animadas */
+.flor{
+    position:absolute;
+    font-size:25px;
+    animation: caer 6s linear infinite;
+}
+
+@keyframes caer{
+    0%{
+        transform: translateY(-100px);
+        opacity:1;
+    }
+    100%{
+        transform: translateY(100vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="carta">
+    <h1>Para ti Johana 🌹</h1>
+    <p id="mensaje">
+        Desde que llegaste a mi vida todo es más bonito.
+    </p>
+
+    <button onclick="cambiarMensaje()">Toca aquí 💖</button>
+</div>
+
+<script>
+let mensajes = [
+"Johana, eres lo mejor que me ha pasado 💕",
+"Gracias por cada sonrisa que me regalas 😊",
+"Eres mi paz, mi alegría y mi todo 💖",
+"Te amo más de lo que imaginas 🌹",
+"Att: tu negrito ❤️"
+];
+
+let i = 0;
+
+function cambiarMensaje(){
+    i++;
+    if(i < mensajes.length){
+        document.getElementById("mensaje").innerText = mensajes[i];
+    }
+}
+
+/* Crear flores */
+function crearFlor(){
+    const flor = document.createElement("div");
+    flor.classList.add("flor");
+    flor.innerText = "🌹";
+    flor.style.left = Math.random() * window.innerWidth + "px";
+    flor.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(flor);
+
+    setTimeout(()=>{
+        flor.remove();
+    },6000);
+}
+
+setInterval(crearFlor, 500);
+</script>
+
+</body>
+</html>
